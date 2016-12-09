@@ -17,9 +17,8 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.http.get('//reqres.in/api/users')
-            .subscribe(data => {
-                this.users = data.json().data;
-            })
+            .map(response => response.json().data)
+            .subscribe(users => this.users = users);
     }
 
 }

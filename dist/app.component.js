@@ -14,12 +14,14 @@ var AppComponent = (function () {
     function AppComponent (http) {
         this.http = http;
     }
-
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.http.get('//reqres.in/api/users')
-            .subscribe(function (data) {
-                _this.users = data.json().data;
+            .map(function (response) {
+                return response.json().data;
+            })
+            .subscribe(function (users) {
+                return _this.users = users;
             });
     };
     return AppComponent;
