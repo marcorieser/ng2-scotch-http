@@ -20,8 +20,6 @@ var AppComponent = (function () {
             .subscribe(function (users) {
                 return _this.users = users;
             });
-        this.userService.getUser()
-            .subscribe();
     };
     return AppComponent;
 }());

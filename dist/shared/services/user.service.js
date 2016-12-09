@@ -25,7 +25,6 @@ var UserService = (function () {
         this.http = http;
         this.usersUrl = '//reqres.in/api/users';
     }
-
     /**
      * Get all users
      */
