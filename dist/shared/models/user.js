@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * User Model
+ */
 var User = (function () {
     function User () {
     }

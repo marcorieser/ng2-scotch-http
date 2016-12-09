@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "user-service.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../app/shared/services/user-service.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;;;;;;;AAAA,sCAA2C;AAG3C,IAAa,OAAO;IAEhB;IAAgB,CAAC;IAErB,cAAC;AAAD,CAAC,AAJD,IAIC;AAJY,OAAO;IADnB,iBAAU,EAAE;;GACA,OAAO,CAInB;AAJY,0BAAO"
+}

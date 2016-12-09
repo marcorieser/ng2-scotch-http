@@ -9,20 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var user_service_1 = require("./shared/services/user.service");
 var AppComponent = (function () {
-    function AppComponent (http) {
-        this.http = http;
+    function AppComponent (userService) {
+        this.userService = userService;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.http.get('//reqres.in/api/users')
-            .map(function (response) {
-                return response.json().data;
-            })
+        this.userService.getUsers()
             .subscribe(function (users) {
                 return _this.users = users;
             });
+        this.userService.getUser()
+            .subscribe();
     };
     return AppComponent;
 }());
@@ -32,7 +31,7 @@ AppComponent = __decorate([
         templateUrl: './app/app.component.html',
         styleUrls: ['./app/app.component.css']
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [user_service_1.UserService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
