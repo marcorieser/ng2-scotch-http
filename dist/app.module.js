@@ -12,9 +12,11 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var users_component_1 = require("./users/users.component");
+var user_list_component_1 = require("./users/user-list/user-list.component");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var user_service_1 = require("./shared/services/user.service");
+var app_routing_1 = require("./app.routing");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
 require("rxjs/add/observable/throw");
@@ -25,8 +27,8 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports:      [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent, users_component_1.UsersComponent],
+        imports:      [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, app_routing_1.routing],
+        declarations: [app_component_1.AppComponent, users_component_1.UsersComponent, user_list_component_1.UserListComponent],
         providers:    [user_service_1.UserService],
         bootstrap:    [app_component_1.AppComponent]
     }),
