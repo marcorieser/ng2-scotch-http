@@ -23,7 +23,6 @@ var UserListComponent = (function () {
     function UserListComponent (userService) {
         this.userService = userService;
     }
-
     UserListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userService.getUsers()

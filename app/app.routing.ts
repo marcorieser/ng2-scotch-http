@@ -1,19 +1,3 @@
-// import { NgModule } from '@angular/core';
-// import { Routes, RouterModule } from '@angular/router';
-//
-// import { Component } from './.component';
-//
-// const routes: Routes = [
-//   { path: '', component: Component },
-// ];
-//
-// @NgModule({
-//   imports: [RouterModule.for(routes)],
-//   exports: [RouterModule],
-// })
-// export class RoutingModule { }
-//
-// export const routedComponents = [Component];
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {UsersComponent} from './users/users.component';
