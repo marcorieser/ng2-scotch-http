@@ -22,9 +22,9 @@ export class UserService {
     /**
      * Get a single user
      */
-    getUser() {
-        return this.http.get('')
-            .map((response: Response) => response.json())
+    getUser(id: number): Observable<User> {
+        return this.http.get(`${this.usersUrl}/${id}`)
+            .map((response: Response) => response.json().data)
             .catch(this.handleError);
     }
 

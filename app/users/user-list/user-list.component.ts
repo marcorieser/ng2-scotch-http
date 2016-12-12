@@ -3,7 +3,8 @@ import {UserService} from '../../shared/services/user.service'
 import {User} from '../../shared/models/user';
 
 @Component({
-    templateUrl: './app/users/user-list/user-list.component.html'
+    templateUrl: './app/users/user-list/user-list.component.html',
+    styleUrls: ['./app/users/user-list/user-list.component.css']
 })
 export class UserListComponent implements OnInit {
     users: User[];

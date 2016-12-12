@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "user-single.component.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../app/users/user-single.component.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}

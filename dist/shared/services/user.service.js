@@ -38,10 +38,10 @@ var UserService = (function () {
     /**
      * Get a single user
      */
-    UserService.prototype.getUser = function () {
-        return this.http.get('')
+    UserService.prototype.getUser = function (id) {
+        return this.http.get(this.usersUrl + "/" + id)
             .map(function (response) {
-                return response.json();
+                return response.json().data;
             })
             .catch(this.handleError);
     };
