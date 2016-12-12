@@ -28,10 +28,10 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports:      [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, app_routing_1.routing],
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, app_routing_1.routing],
         declarations: [app_component_1.AppComponent, users_component_1.UsersComponent, user_list_component_1.UserListComponent, user_single_component_1.UserSingleComponent],
-        providers:    [user_service_1.UserService],
-        bootstrap:    [app_component_1.AppComponent]
+        providers: [user_service_1.UserService],
+        bootstrap: [app_component_1.AppComponent]
     }),
     __metadata("design:paramtypes", [])
 ], AppModule);

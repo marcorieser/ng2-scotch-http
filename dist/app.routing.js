@@ -5,16 +5,16 @@ var user_list_component_1 = require("./users/user-list/user-list.component");
 var user_single_component_1 = require("./users/user-single/user-single.component");
 exports.routes = [
     {
-        path:       '',
+        path: '',
         redirectTo: '/users',
-        pathMatch:  'full'
+        pathMatch: 'full'
     },
     {
-        path:      'users',
+        path: 'users',
         component: users_component_1.UsersComponent,
-        children:  [
+        children: [
             {
-                path:      '',
+                path: '',
                 component: user_list_component_1.UserListComponent
             },
             //     {
@@ -22,7 +22,7 @@ exports.routes = [
             //         component: UserCreateComponent
             //     },
             {
-                path:      ':id',
+                path: ':id',
                 component: user_single_component_1.UserSingleComponent
             }
         ]

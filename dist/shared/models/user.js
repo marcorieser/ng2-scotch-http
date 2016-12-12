@@ -3,7 +3,7 @@
  * User Model
  */
 var User = (function () {
-    function User () {
+    function User() {
     }
     return User;
 }());
