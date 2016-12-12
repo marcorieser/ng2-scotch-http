@@ -20,8 +20,10 @@ var UserService = (function () {
      * Get all users
      */
     UserService.prototype.getUsers = function () {
+        var _this = this;
         return this.http.get(this.usersUrl)
             .map(function (response) { return response.json().data; })
+            .map(function (users) { return users.map(_this.toUser); })
             .catch(this.handleError);
     };
     /**
@@ -30,7 +32,19 @@ var UserService = (function () {
     UserService.prototype.getUser = function (id) {
         return this.http.get(this.usersUrl + "/" + id)
             .map(function (response) { return response.json().data; })
+            .map(this.toUser)
             .catch(this.handleError);
+    };
+    /**
+     * Convert user info from API to our format
+     */
+    UserService.prototype.toUser = function (user) {
+        return {
+            id: user.id,
+            name: user.first_name + " " + user.last_name,
+            username: user.first_name,
+            avatar: user.avatar
+        };
     };
     /**
      * Handle any errors from the API
