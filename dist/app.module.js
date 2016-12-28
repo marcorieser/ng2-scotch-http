@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
+require("rxjs/add/observable/throw");
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
@@ -18,9 +21,7 @@ var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var user_service_1 = require("./shared/services/user.service");
 var app_routing_1 = require("./app.routing");
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/catch");
-require("rxjs/add/observable/throw");
+var user_edit_component_1 = require("./users/user-edit/user-edit.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,7 +30,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, app_routing_1.routing],
-        declarations: [app_component_1.AppComponent, users_component_1.UsersComponent, user_list_component_1.UserListComponent, user_single_component_1.UserSingleComponent],
+        declarations: [app_component_1.AppComponent, users_component_1.UsersComponent, user_list_component_1.UserListComponent, user_single_component_1.UserSingleComponent, user_edit_component_1.UserEditComponent],
         providers: [user_service_1.UserService],
         bootstrap: [app_component_1.AppComponent]
     }),

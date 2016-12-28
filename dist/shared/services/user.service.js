@@ -14,7 +14,7 @@ var Observable_1 = require("rxjs/Observable");
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.usersUrl = '//reqres.in/api/users';
+        this.usersUrl = 'https://reqres.in/api/users';
     }
     /**
      * Get all users
@@ -33,6 +33,14 @@ var UserService = (function () {
         return this.http.get(this.usersUrl + "/" + id)
             .map(function (response) { return response.json().data; })
             .map(this.toUser)
+            .catch(this.handleError);
+    };
+    /**
+     * Update the user
+     */
+    UserService.prototype.updateUser = function (user) {
+        return this.http.put(this.usersUrl + "/" + user.id, user)
+            .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     /**

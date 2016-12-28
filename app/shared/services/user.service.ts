@@ -5,7 +5,7 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class UserService {
-    private usersUrl: string = '//reqres.in/api/users';
+    private usersUrl: string = 'https://reqres.in/api/users';
 
     constructor(private http: Http) {
     }
@@ -27,6 +27,15 @@ export class UserService {
         return this.http.get(`${this.usersUrl}/${id}`)
             .map((response: Response) => response.json().data)
             .map(this.toUser)
+            .catch(this.handleError);
+    }
+
+    /**
+     * Update the user
+     */
+    updateUser(user: User): Observable<User> {
+        return this.http.put(`${this.usersUrl}/${user.id}`, user)
+            .map((response: Response) => response.json())
             .catch(this.handleError);
     }
 
