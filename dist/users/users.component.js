@@ -9,10 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var user_service_1 = require("../shared/services/user.service");
 var UsersComponent = (function () {
-    function UsersComponent() {
+    function UsersComponent(userService) {
+        this.userService = userService;
+        this.successMessage = '';
+        this.errorMessage = '';
     }
     UsersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.userCreated$.subscribe(function (user) {
+            _this.successMessage = user.name + " was created.";
+            _this.clearMessages();
+        });
+        this.userService.userDeleted$.subscribe(function () {
+            _this.successMessage = 'The user has been deleted.';
+            _this.clearMessages();
+        });
+    };
+    UsersComponent.prototype.clearMessages = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.successMessage = '';
+            _this.errorMessage = '';
+        }, 5000);
     };
     return UsersComponent;
 }());
@@ -21,7 +41,7 @@ UsersComponent = __decorate([
         selector: 'users',
         templateUrl: './app/users/users.component.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [user_service_1.UserService])
 ], UsersComponent);
 exports.UsersComponent = UsersComponent;
 //# sourceMappingURL=users.component.js.map

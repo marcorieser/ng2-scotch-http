@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
+require("rxjs/add/operator/do");
 require("rxjs/add/observable/throw");
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
