@@ -8,6 +8,8 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class UserEditComponent implements OnInit {
     user: User;
+    successMessage: string = '';
+    errorMessage: string = '';
 
     constructor(private userService: UserService, private route: ActivatedRoute) {
     }
@@ -19,10 +21,17 @@ export class UserEditComponent implements OnInit {
     }
 
     updateUser() {
+        this.successMessage = '';
+        this.errorMessage = '';
         this.userService.updateUser(this.user)
-            .subscribe(user => {
-                console.log('user updated');
-            });
+            .subscribe(
+                user => {
+                    this.successMessage = 'User was updated.';
+                },
+                err => {
+                    this.errorMessage = 'User could not be updated.'
+                }
+            );
     }
 
 }

@@ -15,6 +15,8 @@ var UserEditComponent = (function () {
     function UserEditComponent(userService, route) {
         this.userService = userService;
         this.route = route;
+        this.successMessage = '';
+        this.errorMessage = '';
     }
     UserEditComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -23,9 +25,14 @@ var UserEditComponent = (function () {
             .subscribe(function (user) { return _this.user = user; });
     };
     UserEditComponent.prototype.updateUser = function () {
+        var _this = this;
+        this.successMessage = '';
+        this.errorMessage = '';
         this.userService.updateUser(this.user)
             .subscribe(function (user) {
-            console.log('user updated');
+            _this.successMessage = 'User was updated.';
+        }, function (err) {
+            _this.errorMessage = 'User could not be updated.';
         });
     };
     return UserEditComponent;
