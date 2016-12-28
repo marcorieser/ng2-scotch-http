@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../shared/services/user.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../shared/models/user";
 
 @Component({
@@ -9,7 +9,7 @@ import {User} from "../../shared/models/user";
 export class UserSingleComponent implements OnInit {
     private user: User;
 
-    constructor(private route: ActivatedRoute, private userService: UserService) {
+    constructor(private route: ActivatedRoute, private userService: UserService, private router: Router) {
     }
 
     ngOnInit() {
@@ -19,4 +19,10 @@ export class UserSingleComponent implements OnInit {
             .subscribe(user => this.user = user);
     }
 
+    deleteUser() {
+        this.userService.deleteUser(this.user.id)
+            .subscribe(() => {
+                this.router.navigate(['/users']);
+            })
+    }
 }

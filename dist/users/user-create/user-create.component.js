@@ -26,10 +26,10 @@ var UserCreateComponent = (function () {
         this.successMessage = '';
         this.errorMessage = '';
         this.userService.createUser(this.user)
-            .subscribe(function (user) {
+            .subscribe(function () {
             _this.successMessage = 'User was created.';
             _this.router.navigate(['/users']);
-        }, function (err) {
+        }, function () {
             _this.errorMessage = 'User could not be created.';
         });
     };

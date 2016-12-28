@@ -22,11 +22,11 @@ export class UserCreateComponent implements OnInit {
         this.errorMessage = '';
         this.userService.createUser(this.user)
             .subscribe(
-                user => {
+                () => {
                     this.successMessage = 'User was created.';
                     this.router.navigate(['/users']);
                 },
-                err => {
+                () => {
                     this.errorMessage = 'User could not be created.';
                 }
             );

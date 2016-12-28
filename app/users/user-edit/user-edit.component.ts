@@ -25,10 +25,10 @@ export class UserEditComponent implements OnInit {
         this.errorMessage = '';
         this.userService.updateUser(this.user)
             .subscribe(
-                user => {
+                () => {
                     this.successMessage = 'User was updated.';
                 },
-                err => {
+                () => {
                     this.errorMessage = 'User could not be updated.'
                 }
             );

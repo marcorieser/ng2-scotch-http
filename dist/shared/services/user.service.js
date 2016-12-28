@@ -52,6 +52,13 @@ var UserService = (function () {
             .catch(this.handleError);
     };
     /**
+     * Delete a user
+     */
+    UserService.prototype.deleteUser = function (id) {
+        return this.http.delete(this.usersUrl + "/" + id)
+            .catch(this.handleError);
+    };
+    /**
      * Convert user info from API to our format
      */
     UserService.prototype.toUser = function (user) {

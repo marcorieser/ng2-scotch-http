@@ -49,6 +49,14 @@ export class UserService {
     }
 
     /**
+     * Delete a user
+     */
+    deleteUser(id: number): Observable<any> {
+        return this.http.delete(`${this.usersUrl}/${id}`)
+            .catch(this.handleError);
+    }
+
+    /**
      * Convert user info from API to our format
      */
     private toUser(user): User {
