@@ -40,6 +40,15 @@ export class UserService {
     }
 
     /**
+     * Create a user
+     */
+    createUser(user: User): Observable<User> {
+        return this.http.post(this.usersUrl, user)
+            .map((response: Response) => response.json())
+            .catch(this.handleError);
+    }
+
+    /**
      * Convert user info from API to our format
      */
     private toUser(user): User {

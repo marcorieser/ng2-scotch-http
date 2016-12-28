@@ -1,5 +1,6 @@
 <div class="jumbotron text-center">
     <h1>Users</h1>
+    <a routerLink="/users/create" class="btn btn-sm btn-info">Create User</a>
 </div>
 <div *ngIf="users" class="user-list row">
     <div *ngFor="let user of users" class="col-sm-4">

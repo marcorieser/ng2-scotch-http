@@ -13,10 +13,11 @@ import {FormsModule} from '@angular/forms';
 import {UserService} from './shared/services/user.service';
 import {routing} from './app.routing';
 import {UserEditComponent} from "./users/user-edit/user-edit.component";
+import {UserCreateComponent} from "./users/user-create/user-create.component";
 
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, routing],
-    declarations: [AppComponent, UsersComponent, UserListComponent, UserSingleComponent, UserEditComponent],
+    declarations: [AppComponent, UsersComponent, UserListComponent, UserSingleComponent, UserEditComponent, UserCreateComponent],
     providers: [UserService],
     bootstrap: [AppComponent]
 })
