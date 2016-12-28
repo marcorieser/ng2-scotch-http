@@ -16,18 +16,18 @@ var LoginComponent = (function () {
         this.authService = authService;
         this.router = router;
         this.credentials = { username: '', password: '' };
-        this.successMessage = '';
         this.errorMessage = '';
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
+        this.errorMessage = '';
         this.authService.login(this.credentials.username, this.credentials.password)
             .subscribe(function () {
             _this.router.navigate(['']);
         }, function (err) {
-            console.log(err);
+            _this.errorMessage = err;
         });
     };
     return LoginComponent;

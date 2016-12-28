@@ -7,7 +7,6 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
     credentials = {username: '', password: ''};
-    successMessage: string = '';
     errorMessage: string = '';
 
     constructor(private authService: AuthService, private router: Router) {
@@ -17,13 +16,14 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+        this.errorMessage = '';
         this.authService.login(this.credentials.username, this.credentials.password)
             .subscribe(
                 () => {
                     this.router.navigate(['']);
                 },
                 err => {
-                    console.log(err);
+                    this.errorMessage = err;
                 }
             )
     }

@@ -15,9 +15,17 @@ export class AuthService {
         return this.http.post(`${this.authUrl}/login`, {username, password})
             .map(response => response.json())
             .do(response => {
-                if (response.token) localStorage.setItem('auth_token', response.token)
+                if (response.token) {
+                    localStorage.setItem('auth_token', response.token);
+                    this.loggedIn = true;
+                }
             })
             .catch(this.handleError);
+    }
+
+    logout() {
+        localStorage.removeItem('auth_token');
+        this.loggedIn = false;
     }
 
     isLoggedIn(): boolean {

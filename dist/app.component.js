@@ -9,9 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var auth_service_1 = require("./shared/services/auth.service");
+var router_1 = require("@angular/router");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(authService, router) {
+        this.authService = authService;
+        this.router = router;
     }
+    Object.defineProperty(AppComponent.prototype, "isLoggedIn", {
+        get: function () {
+            return this.authService.isLoggedIn();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AppComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.router.navigate(['/login']);
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -20,7 +35,7 @@ AppComponent = __decorate([
         templateUrl: './app/app.component.html',
         styleUrls: ['./app/app.component.css']
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

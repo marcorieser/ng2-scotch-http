@@ -19,13 +19,20 @@ var AuthService = (function () {
         this.loggedIn = !!localStorage.getItem('auth_token');
     }
     AuthService.prototype.login = function (username, password) {
+        var _this = this;
         return this.http.post(this.authUrl + "/login", { username: username, password: password })
             .map(function (response) { return response.json(); })
             .do(function (response) {
-            if (response.token)
+            if (response.token) {
                 localStorage.setItem('auth_token', response.token);
+                _this.loggedIn = true;
+            }
         })
             .catch(this.handleError);
+    };
+    AuthService.prototype.logout = function () {
+        localStorage.removeItem('auth_token');
+        this.loggedIn = false;
     };
     AuthService.prototype.isLoggedIn = function () {
         return this.loggedIn;
