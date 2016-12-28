@@ -12,9 +12,10 @@ var core_1 = require("@angular/core");
 var user_service_1 = require("../../shared/services/user.service");
 var router_1 = require("@angular/router");
 var UserSingleComponent = (function () {
-    function UserSingleComponent(route, userService) {
+    function UserSingleComponent(route, userService, router) {
         this.route = route;
         this.userService = userService;
+        this.router = router;
     }
     UserSingleComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -22,13 +23,20 @@ var UserSingleComponent = (function () {
         this.userService.getUser(id)
             .subscribe(function (user) { return _this.user = user; });
     };
+    UserSingleComponent.prototype.deleteUser = function () {
+        var _this = this;
+        this.userService.deleteUser(this.user.id)
+            .subscribe(function () {
+            _this.router.navigate(['/users']);
+        });
+    };
     return UserSingleComponent;
 }());
 UserSingleComponent = __decorate([
     core_1.Component({
         templateUrl: './app/users/user-single/user-single.component.html'
     }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute, user_service_1.UserService])
+    __metadata("design:paramtypes", [router_1.ActivatedRoute, user_service_1.UserService, router_1.Router])
 ], UserSingleComponent);
 exports.UserSingleComponent = UserSingleComponent;
 //# sourceMappingURL=user-single.component.js.map

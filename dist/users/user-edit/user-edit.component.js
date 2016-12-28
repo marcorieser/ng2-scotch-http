@@ -29,9 +29,9 @@ var UserEditComponent = (function () {
         this.successMessage = '';
         this.errorMessage = '';
         this.userService.updateUser(this.user)
-            .subscribe(function (user) {
+            .subscribe(function () {
             _this.successMessage = 'User was updated.';
-        }, function (err) {
+        }, function () {
             _this.errorMessage = 'User could not be updated.';
         });
     };
